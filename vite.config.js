@@ -5,11 +5,12 @@ import react from '@vitejs/plugin-react';
 
 const manifestPlugin = {
   registerType: 'autoUpdate',
-  includeAssets: ['logoKKN.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
   workbox: {
-    skipWaiting: true,
-    cleanupOutdatedCaches: false
+    globPatterns: ["**/*"],
   },
+  includeAssets: [
+    "**/*",
+  ],
   manifest: {
     name: 'Kimak+',
     short_name: 'Kimak+',

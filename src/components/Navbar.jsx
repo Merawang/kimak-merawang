@@ -28,15 +28,6 @@ const Navbar = () => {
         setAnchorEl(null);
     };
 
-    const handleDarkMode = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const html = document.querySelector('html');
-        html.classList.toggle('dark');
-
-    }
-
     // Dropdown List
     const navbar = {
         home: {
@@ -119,12 +110,6 @@ const Navbar = () => {
                         <ul className="flex flex-col items-center p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                             <li>
                                 <NavLink to={navbar.about.link} className={({ isActive }) => isActive ? "text-emerald-600 transition-all" : "block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-emerald-700 md:p-0 md:dark:hover:text-emerald-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"}>{navbar.about.label}</NavLink>
-                            </li>
-                            <li>
-                                <div className="wrapper flex flex-row rounded-full items-center bg-gradient-to-r from-emerald-600 to-teal-500">
-                                    <Switch color='default' onChange={(e) => handleDarkMode(e)} />
-                                    <DarkModeIcon className='text-white mr-2' />
-                                </div>
                             </li>
                         </ul>
                     </div>

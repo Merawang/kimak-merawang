@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { ThemeProvider, createTheme } from '@mui/material'
+import { registerSW } from "virtual:pwa-register";
 
 
 // Pages and Assets
@@ -41,6 +42,20 @@ const theme = createTheme({
   },
   palette: {
     mainGreen: createColor('#059669'),
+  },
+});
+
+// Update PWA
+const updateSW = registerSW({
+  onOfflineReady() {
+    if (confirm("Work offline activated. Reload?")) {
+      updateSW(true);
+    }
+  },
+  onNeedRefresh() {
+    if (confirm("New content available. Reload?")) {
+      updateSW(true);
+    }
   },
 });
 
